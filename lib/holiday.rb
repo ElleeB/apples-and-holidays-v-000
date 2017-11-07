@@ -15,10 +15,13 @@ holiday_hash = {
     :memorial_day => ["BBQ"]
   }
 }
+# Write a method that returns the second supply for the Fourth of July.
 
 def second_supply_for_fourth_of_july(holiday_hash)
   holiday_supplies[:summer][:fourth_of_july][1]
 end
+
+# Write a method that adds a supply to both Winter holidays.
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
   holiday_hash.each do |seasons, holiday|
@@ -27,6 +30,8 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
     end
   end
 end
+
+# Write a method that adds a supply to Memorial Day.
 
 def add_supply_to_memorial_day(holiday_hash, supply)
   holiday_hash.each do |seasons, holiday|
@@ -38,6 +43,8 @@ def add_supply_to_memorial_day(holiday_hash, supply)
   end
 end
 
+# Write a method that adds a new holiday and its associated supplies to any season.
+
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   holiday_hash.each do |season, holiday|
     holiday.each do |holiday, supplies|
@@ -45,6 +52,8 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
   holiday_hash[season][holiday_name] = supply_array
  end
 end
+
+# Write a method to collect all Winter supplies from all the winter holidays.
 
 def all_winter_holiday_supplies(holiday_hash)
   winter_supplies = []
@@ -58,16 +67,16 @@ def all_winter_holiday_supplies(holiday_hash)
   winter_supplies.flatten
 end
 
+# Write a method that uses a loop to list out all the supplies you have for each holiday and the season.
+# Use string manipulation to get your output to match what the test is expecting.
+
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
-    puts "#{season.to_s.capitalize!}:"
-
+  puts "#{season.to_s.capitalize!}:"
     holiday.each do |holiday,supply|
-      holiday = holiday.to_s.split("_").join(" ") + ":"
-
-        upcase_holiday = holiday.split(" ").each {|word| word.capitalize!}
-
-        puts "  #{upcase_holiday.join(" ")} #{supply.join(", ")}"
+    holiday = holiday.to_s.split("_").join(" ") + ":"
+      upcase_holiday = holiday.split(" ").each {|word| word.capitalize!}
+      puts "  #{upcase_holiday.join(" ")} #{supply.join(", ")}"
     end
   end
 end
